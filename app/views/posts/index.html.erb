@@ -1,1 +1,12 @@
-jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+<%= link_to "aa", new_post_path %>
+
+
+<%- @posts.each do |post| %>
+  <p class="aaa">
+    <%= post.title %>
+  </p>
+  <p>
+    <%= post.content %>
+  </p>
+<% end %>
+
