@@ -23,5 +23,8 @@ module TyokottoBbs
       g.helper false
       g.test_framework false
     end
+
+    #Set devise to Japanese
+    config.i18n.default_locale = :ja
   end
 end
