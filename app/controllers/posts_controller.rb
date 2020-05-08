@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:user)
   end
 
   def new
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     post.update(post_params)
+    redirect_to root_path
   end
 
   def show
