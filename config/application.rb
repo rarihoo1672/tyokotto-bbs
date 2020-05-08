@@ -27,5 +27,8 @@ module TyokottoBbs
     #Set devise to Japanese
     config.i18n.default_locale = :ja
 
+    #Set timezone to ja
+    config.time_zone = 'Asia/Tokyo'
+
   end
 end
