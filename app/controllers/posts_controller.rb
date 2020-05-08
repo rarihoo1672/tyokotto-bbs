@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    @posts = Post.all.includes(:user)
+    @posts = Post.all.includes(:user).order("created_at DESC")
   end
 
   def new
