@@ -10,7 +10,7 @@ $(function() {
         if (old != (v = elm.value)) {
         old = v;
         str = $(this).val();
-        $("#marked-area").html(str);
+        $("#marked-area").html(marked(str));
         }
       }
     }
