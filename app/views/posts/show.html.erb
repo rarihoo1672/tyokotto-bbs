@@ -1,4 +1,23 @@
-<div>
-<%= @post.title %>
-<%= @post.content %>
-<%= link_to %>
+<h2>
+  投稿者：
+
+  <%= link_to @post.user.name, user_path(@post.user_id)%>
+</h2>
+<p>
+  タイトル
+  <%= @post.title %>
+</p>
+<p>
+  記事
+  <%= @post.content %>
+</p>
+<p>
+  日時
+  <%= @post.created_at%>
+</p>
+<% if user_signed_in? && current_user.id == @post.user_id %>
+  <%= link_to '編集', "/posts/#{@post.id}/edit" %>
+<% end %>
+</div>
+<%= link_to "戻る", :back %>
+

@@ -3,3 +3,8 @@
   <%= form.text_area :content, placeholder: "text" %>
   <%= form.submit "SEND" %>
 <% end %>
+
+<%= link_to "戻る", :back%>
+<%= link_to "プロフィールへ", user_path(current_user.id) %>
+
+<%= link_to "ホームへ", root_path%>

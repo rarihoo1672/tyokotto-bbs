@@ -1,0 +1,22 @@
+<h2>
+  <%= @name %>
+  さんの投稿一覧
+</h2>
+
+<%- @posts.each do |post| %>
+<p>
+  タイトル
+  <%= post.title %>
+</p>
+<p>
+  記事
+  <%= post.content %>
+</p>
+<p>
+  制作日時 
+  <%= post.created_at %>
+</p>
+<% end %>
+
+<%= link_to "ホームへ戻る", root_path%>
+
