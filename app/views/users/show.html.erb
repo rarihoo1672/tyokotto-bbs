@@ -4,18 +4,15 @@
 </h2>
 
 <%- @posts.each do |post| %>
-<p>
-  タイトル
-  <%= post.title %>
-</p>
-<p>
-  記事
-  <%= post.content %>
-</p>
-<p>
-  制作日時 
-  <%= post.created_at %>
-</p>
+  <p>
+    タイトル
+    <%= post.title %>
+  </p>
+  <p>
+    制作日時 
+    <%= post.created_at %>
+  </p>
+  <%= link_to "記事詳細",  post_path(post) %>
 <% end %>
 
 <%= link_to "ホームへ戻る", root_path%>
