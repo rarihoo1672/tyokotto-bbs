@@ -2,7 +2,10 @@
   <%= @name %>
   さんの投稿一覧
 </h2>
-
+<p>
+  記事の数は
+  <%= @count %>
+</p>
 <%- @posts.each do |post| %>
   <p>
     タイトル
@@ -14,6 +17,7 @@
   </p>
   <%= link_to "記事詳細",  post_path(post) %>
 <% end %>
+<%= paginate @posts %>
 
 <%= link_to "ホームへ戻る", root_path%>
 
