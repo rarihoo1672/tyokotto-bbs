@@ -1,1 +1,18 @@
-jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+
+
+
+
+<%- @posts.each do |post| %>
+  <%= link_to  post_path(post) do %>
+    <h2>
+      <%= post.user.name %>
+    </h2>
+    <p class="aaa">
+      <%= post.title %>
+    </p>
+    <p>
+      <%= post.content %>
+    </p>
+  <% end %>
+<% end %>
+
