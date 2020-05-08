@@ -1,6 +1,8 @@
 <%= form_with(model: @post, local: true) do |form| %>
   <%= form.text_field :title, placeholder: "title" %>
-  <%= form.text_area :content, placeholder: "text" %>
+  <div id="editor">
+    <%= form.text_area :content, placeholder: "text" %>
+  </div>
   <%= form.submit "SEND" %>
 <% end %>
 
@@ -8,3 +10,5 @@
 <%= link_to "プロフィールへ", user_path(current_user.id) %>
 
 <%= link_to "ホームへ", root_path%>
+
+<div id="marked-area"></div>
