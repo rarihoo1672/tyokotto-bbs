@@ -13,7 +13,7 @@
 </p>
 <p>
   日時
-  <%= @post.created_at%>
+  <%= @post.created_at.to_s(:datetime) %>
 </p>
 <% if user_signed_in? && current_user.id == @post.user_id %>
   <%= link_to '編集', "/posts/#{@post.id}/edit" %>
