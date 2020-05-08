@@ -10,8 +10,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    redirect_to user_path(current_user.id)
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path, notice: "投稿に成功しました"
+    else
+      flash[:notice] = "投稿に失敗しました"
+      render :new 
+    end
   end
 
   def edit
