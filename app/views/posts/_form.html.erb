@@ -1,0 +1,17 @@
+<h2>
+  記事のジャンル：
+  <%= @tag.name %>
+<h2>
+
+<div id="marked-area"></div>
+<%= form_with(model: [@tag, @post], local: true) do |form| %>
+  <%= form.text_field :title, placeholder: "title" %>
+  <div id="editor">
+    <%= form.text_area :content, placeholder: "text" %>
+  </div>
+  <%= form.submit "送信" %>
+<% end %>
+
+<%= link_to "プロフィールへ", user_path(current_user.id) %>
+
+<%= link_to "ホームへ", root_path%>
