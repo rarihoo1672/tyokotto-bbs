@@ -9,25 +9,7 @@
 
 
 
-<%- @posts.each do |post| %>
-  <p>
-    ジャンル
-    <%= post.tag.name %>
-  </p>
-  <p>
-    タイトル
-    <%= post.title %>
-  </p>
-  <p>
-    制作日時 
-    <%= post.created_at %>
-  </p>
-  <%= link_to "記事詳細", "/tags/#{post[:tag_id]}/posts/#{post[:id]}" %>
-<% end %>
-
-
-
-<%= paginate @posts %>
+<%= render partial: "posts/post", locals: { posts: @posts }%>
 
 <%= link_to "ホームへ戻る", root_path%>
 
