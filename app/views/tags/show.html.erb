@@ -3,23 +3,24 @@
   <%= @tag.name %>
 </h1>
 
-<% @posts.each do |post| %>
-  <%= link_to  tag_post_path(post) do %>
-    <p>
-      ユーザー
-      <%= post.user.name%>
-    </p>  
-    <h4>
+<%- @posts.each do |post| %>
+  <h2>
+    ユーザー：
+    <%= post.user.name %>
+  </h2>
+  
+  <p>
+    <%= post.created_at.to_s(:datetime) %>
+  </p>
+  <p class="aaa">
     タイトル
-      <%= post.title%>
-    </h4>
-    <p>
-      <%= post.content %>
-    </p>
-    <p>
-    日時
-      <%= post.created_at.to_s(:datetime) %>
-  <% end%>
+    <%= post.title %>
+  </p>
+  <p>
+    記事：
+    <%= truncate(post.content, length: 20, omission: "・・・・") %>
+  <%= link_to "記事詳細", "/tags/#{post[:tag_id]}/posts/#{post[:id]}" %>
+  </p>
 <% end %>
 
 <%= paginate @posts %>

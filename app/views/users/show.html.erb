@@ -6,7 +6,14 @@
   記事の数は
   <%= @count %>
 </p>
+
+
+
 <%- @posts.each do |post| %>
+  <p>
+    ジャンル
+    <%= post.tag.name %>
+  </p>
   <p>
     タイトル
     <%= post.title %>
@@ -15,8 +22,11 @@
     制作日時 
     <%= post.created_at %>
   </p>
-  <%= link_to "記事詳細",  tag_post_path(post) %>
+  <%= link_to "記事詳細", "/tags/#{post[:tag_id]}/posts/#{post[:id]}" %>
 <% end %>
+
+
+
 <%= paginate @posts %>
 
 <%= link_to "ホームへ戻る", root_path%>

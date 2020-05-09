@@ -15,11 +15,31 @@
   記事
   <%= @post.content %>
 </p>
+
 <% if user_signed_in? && current_user.id == @post.user_id %>
     <%= link_to "記事編集", "/tags/#{@post[:tag_id]}/posts/#{@post[:id]}/edit" %>
 <% end %>
-</div>
 
+
+<% @comments.each do |comment| %>
+  <p>
+    コメント
+    <%= comment.text %>
+  </p>
+  <p>
+    コメント
+    <%= comment.created_at.to_s(:datetime) %>
+  </p>
+  
+<% end %>
+
+<% if user_signed_in? %>
+  <%= form_with(model: [@tag, @post, @comment], local: true) do |f| %>
+    <%= f.text_field :text %>
+    <%= f.submit "SEND" %>
+  <% end %>
+<% end %>
+<%= paginate @comments %>
 
 <%= link_to "ホーム", root_path %>
 
