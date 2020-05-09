@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @post = Post.find(params[:id])
     @tag = Tag.find(params[:tag_id])
-    @comments = @post.comments.includes(:user).page(params[:page]).per(5)
+    @comments = @post.comments.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
 
 
