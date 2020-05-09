@@ -4,6 +4,10 @@
   <%= link_to @post.user.name, user_path(@post.user_id)%>
 </h2>
 <p>
+  日時
+  <%= @post.created_at.to_s(:datetime) %>
+</p>
+<p>
   タイトル
   <%= @post.title %>
 </p>
@@ -11,14 +15,11 @@
   記事
   <%= @post.content %>
 </p>
-<p>
-  日時
-  <%= @post.created_at.to_s(:datetime) %>
-</p>
 <% if user_signed_in? && current_user.id == @post.user_id %>
     <%= link_to "記事編集", "/tags/#{@post[:tag_id]}/posts/#{@post[:id]}/edit" %>
 <% end %>
 </div>
+
 
 <%= link_to "ホーム", root_path %>
 

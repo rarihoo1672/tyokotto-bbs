@@ -12,6 +12,7 @@
   <body>
     <header>
       <nav>
+        
         <% if user_signed_in? %> 
           Logged in as <strong><%= current_user.email %></strong>.
           <%= link_to "プロフィールへ", user_path(current_user.id) %>

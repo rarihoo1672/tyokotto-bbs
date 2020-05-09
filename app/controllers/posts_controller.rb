@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @posts = Post.all.includes(:user).order("created_at DESC").page(params[:page]).per(5)
-
+    @tags = Tag.all
   end
 
   def new
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: "投稿に成功しました"
     else
+      redirect_back(fallback_location: root_path)
       flash[:notice] = "投稿に失敗しました"
     end
   end
@@ -26,8 +27,12 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to root_path
+    if post.update(post_params)
+      redirect_to root_path
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:notice] = "投稿に失敗しました"
+    end
   end
 
   def show
