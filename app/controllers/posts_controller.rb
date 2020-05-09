@@ -2,10 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @posts = Post.all.includes(:user).order("created_at DESC").page(params[:page]).per(5)
-
+    @tags = Tag.all
   end
 
   def new
+    @tag = Tag.find(params[:tag_id])
     @post = Post.new
   end
 
@@ -14,19 +15,24 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: "投稿に成功しました"
     else
+      redirect_back(fallback_location: root_path)
       flash[:notice] = "投稿に失敗しました"
-      render :new 
     end
   end
 
   def edit
+    @tag = Tag.find(params[:tag_id])
     @post = Post.find(params[:id])
   end
 
   def update
     post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to root_path
+    if post.update(post_params)
+      redirect_to root_path
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:notice] = "投稿に失敗しました"
+    end
   end
 
   def show
@@ -37,6 +43,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content).merge(user_id: current_user.id, tag_id: params[:tag_id])
   end
 end
