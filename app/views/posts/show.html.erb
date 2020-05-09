@@ -1,6 +1,5 @@
 <h2>
   投稿者：
-
   <%= link_to @post.user.name, user_path(@post.user_id)%>
 </h2>
 <p>
@@ -20,6 +19,16 @@
     <%= link_to "記事編集", "/tags/#{@post[:tag_id]}/posts/#{@post[:id]}/edit" %>
 <% end %>
 
+  <h3>
+    コメント
+  </h3>
+<% if user_signed_in? %>
+  コメントフォーム
+  <%= form_with(model: [@tag, @post, @comment], local: true) do |f| %>
+    <%= f.text_field :text %>
+    <%= f.submit "SEND" %>
+  <% end %>
+<% end %>
 
 <% @comments.each do |comment| %>
   <p>
@@ -33,12 +42,8 @@
   
 <% end %>
 
-<% if user_signed_in? %>
-  <%= form_with(model: [@tag, @post, @comment], local: true) do |f| %>
-    <%= f.text_field :text %>
-    <%= f.submit "SEND" %>
-  <% end %>
-<% end %>
+
+
 <%= paginate @comments %>
 
 <%= link_to "ホーム", root_path %>
