@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @tag = Tag.find(params[:tag_id])
     @post = Post.new
   end
 
@@ -15,11 +16,11 @@ class PostsController < ApplicationController
       redirect_to root_path, notice: "投稿に成功しました"
     else
       flash[:notice] = "投稿に失敗しました"
-      render :new 
     end
   end
 
   def edit
+    @tag = Tag.find(params[:tag_id])
     @post = Post.find(params[:id])
   end
 
@@ -37,6 +38,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content).merge(user_id: current_user.id, tag_id: params[:tag_id])
   end
 end

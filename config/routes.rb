@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
 
   root to: "posts#index"
-  resources :posts
+  resources :tags do
+    resources :posts
+  end
   resources :users
 end

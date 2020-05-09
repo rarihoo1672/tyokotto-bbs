@@ -15,7 +15,7 @@
     制作日時 
     <%= post.created_at %>
   </p>
-  <%= link_to "記事詳細",  post_path(post) %>
+  <%= link_to "記事詳細",  tag_post_path(post) %>
 <% end %>
 <%= paginate @posts %>
 
