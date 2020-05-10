@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     @name = user.name
     @count = User.count
-    @posts = user.posts.order("created_at DESC").page(params[:page])
+    @posts = user.posts.order("created_at DESC").page(params[:page]).per(5)
   end
 end
 

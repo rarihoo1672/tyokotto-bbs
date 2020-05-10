@@ -6,18 +6,10 @@
   記事の数は
   <%= @count %>
 </p>
-<%- @posts.each do |post| %>
-  <p>
-    タイトル
-    <%= post.title %>
-  </p>
-  <p>
-    制作日時 
-    <%= post.created_at %>
-  </p>
-  <%= link_to "記事詳細",  tag_post_path(post) %>
-<% end %>
-<%= paginate @posts %>
+
+
+
+<%= render partial: "posts/post", locals: { posts: @posts }%>
 
 <%= link_to "ホームへ戻る", root_path%>
 

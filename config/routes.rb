@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   root to: "posts#index"
   resources :tags do
-    resources :posts
+    resources :posts do
+      resources :comments 
+    end
   end
   resources :users
 end

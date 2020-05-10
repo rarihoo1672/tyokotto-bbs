@@ -1,32 +1,10 @@
-<p>
+<h1>
   ジャンル
   <%- @tags.each do |tag| %>
     <%= link_to  tag_path(tag) do %>
       <%= tag.name %>
     <% end %>
   <% end%>
-</p>
+</h1>
 
-<%- @posts.each do |post| %>
-  <%= link_to "/tags/#{post[:tag_id]}/posts/#{post[:id]}" do %>
-    <h2>
-      ユーザーネーム：
-      <%= post.user.name %>
-    </h2>
-    <p>
-      <%= post.created_at.to_s(:datetime) %>
-    </p>
-    <p class="aaa">
-      タイトル
-      <%= post.title %>
-    </p>
-    <p>
-      記事：
-      <%= truncate(post.content, length: 20, omission: "・・・・") %>
-    </p>
-  <% end %>
-<% end %>
-<%= paginate @posts %>
-
-
-
+  <%= render partial: "post", locals: { posts: @posts }%>

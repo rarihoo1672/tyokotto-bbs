@@ -1,0 +1,29 @@
+<%- @posts.each do |post| %>
+  
+  <h2>
+    ユーザー：
+    <%= post.user.name %>
+  </h2>
+  
+  <p>
+    ジャンル
+    <%= post.tag.name %>
+  </p>
+    <p>
+    タイトル
+    <%= post.title %>
+  </p>
+
+  <p>
+    制作日時 
+    <%= post.created_at.to_s(:datetime) %>
+  </p>
+
+  <p>
+    記事：
+    <%= truncate(post.content, length: 20, omission: "・・・・") %>
+  <%= link_to "記事詳細", "/tags/#{post[:tag_id]}/posts/#{post[:id]}" %>
+  </p>
+<% end %>
+
+<%= paginate @posts %>
