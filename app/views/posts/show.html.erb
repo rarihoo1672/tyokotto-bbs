@@ -10,6 +10,13 @@
   タイトル
   <%= @post.title %>
 </p>
+
+<% if @post.image.present?%>
+  <%= image_tag(@post.image_url) %>
+<% else %>
+  画像がありません
+<% end %>
+
 <p>
   記事
   <%= @post.content %>

@@ -67,3 +67,5 @@ gem 'devise-i18n-views'
 gem "jquery-rails"
 gem 'marked-rails'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'
