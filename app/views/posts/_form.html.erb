@@ -6,6 +6,7 @@
 <div id="marked-area"></div>
 <%= form_with(model: [@tag, @post], local: true) do |form| %>
   <%= form.text_field :title, placeholder: "title" %>
+  <%= form.file_field :image, placeholder: "image" %>
   <div id="editor">
     <%= form.text_area :content, placeholder: "text" %>
   </div>
