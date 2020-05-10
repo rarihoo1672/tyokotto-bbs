@@ -28,3 +28,6 @@
 
 #Ignore image uploads.
 public/uploads/*
+
+#Ignore env file
+/.env
