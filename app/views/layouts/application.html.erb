@@ -15,7 +15,7 @@
         
         <% if user_signed_in? %> 
           <strong><%= current_user.name %></strong>
-          <%= link_to "プロフィールへ", user_path(current_user.id) %>
+          <%= link_to "投稿した記事一覧", user_path(current_user.id) %>
           <%= link_to 'プロフィール変更', edit_user_registration_path %> 
           <%= link_to "記事投稿", "/tags" %>
           <%= link_to "ログアウト", sign_out_path %>
