@@ -2,17 +2,29 @@
   記事のジャンル：
   <%= @tag.name %>
 <h2>
+<div>
+  <p id="marked-title"></p>
+</div>
+<div>
+  <p id="marked-content"></p>
+</div>
+<img id="select-image">
 
-<div id="marked-area"></div>
+
+
+
 <%= form_with(model: [@tag, @post], local: true) do |form| %>
-  <%= form.text_field :title, placeholder: "title" %>
-  <%= form.file_field :image, placeholder: "image" %>
-  <div id="editor">
-    <%= form.text_area :content, placeholder: "text" %>
-  </div>
+
+    <%= form.text_area  :title, placeholder: "title", id: "editor-title" %>
+    <%= form.file_field :image, placeholder: "image", id: "editor-image" %>
+
+
+  
+
+    <%= form.text_area :content, placeholder: "text", id: "editor-content" %>
   <%= form.submit "送信" %>
 <% end %>
 
 <%= link_to "プロフィールへ", user_path(current_user.id) %>
 
-<%= link_to "ホームへ", root_path%>
+<%= link_to "ホームへ", root_path %>
