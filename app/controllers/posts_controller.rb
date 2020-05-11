@@ -23,12 +23,18 @@ class PostsController < ApplicationController
   def edit
     @tag = Tag.find(params[:tag_id])
     @post = Post.find(params[:id])
+    if @post.user_id == current_user.id
+      render controller: :edit
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:notice] = "投稿に失敗しました"
+    end
   end
 
   def update
     post = Post.find(params[:id])
     if post.update(post_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "投稿を編集しました"
     else
       redirect_back(fallback_location: root_path)
       flash[:notice] = "投稿に失敗しました"
