@@ -23,7 +23,7 @@
 </p>
 
 <% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to "記事編集", "/tags/#{@post[:tag_id]}/posts/#{@post[:id]}/edit" %>
+    <%= link_to "記事編集", edit_tag_post_path(@post.tag_id, @post) %>
 <% end %>
 
   <h3>

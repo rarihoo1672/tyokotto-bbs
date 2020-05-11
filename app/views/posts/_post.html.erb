@@ -28,7 +28,7 @@
   <p>
     記事：
     <%= truncate(post.content, length: 20, omission: "・・・・") %>
-  <%= link_to "記事詳細", "/tags/#{post[:tag_id]}/posts/#{post[:id]}" %>
+  <%= link_to "記事詳細", tag_post_path(post.tag_id, post.id) %>
   </p>
 <% end %>
 
