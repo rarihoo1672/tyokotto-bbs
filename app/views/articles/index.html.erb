@@ -7,7 +7,7 @@
     内容
     <%= article.description %>
   </p>
-  <%= link_to article.url%>
+  <%= link_to "#{article.url}", article.url %>
   <%= image_tag(article.urlToImage) %>
   <% end %>
 
