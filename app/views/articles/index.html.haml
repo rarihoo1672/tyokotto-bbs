@@ -1,0 +1,11 @@
+- @articles.each do |article|
+  %h1
+    = article.title
+  = article.publishedAt.to_s(:datetime)
+  %p
+    内容
+    = article.description
+  = link_to "#{article.url}", article.url
+  = image_tag(article.urlToImage)
+= paginate @articles
+= link_to "ホーム", root_path

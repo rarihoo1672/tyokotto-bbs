@@ -1,0 +1,16 @@
+%h2
+  記事のジャンル：
+  = @tag.name
+  %h2
+    %div
+      %p#marked-title
+    %div
+      %p#marked-content
+    %img#select-image/
+    = form_with(model: [@tag, @post], local: true) do |form|
+      = form.text_area  :title, placeholder: "title", id: "editor-title"
+      = form.file_field :image, placeholder: "image", id: "editor-image"
+      = form.text_area :content, placeholder: "text", id: "editor-content"
+      = form.submit "送信"
+    = link_to "プロフィールへ", user_path(current_user.id)
+    = link_to "ホームへ", root_path

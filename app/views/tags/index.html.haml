@@ -1,0 +1,5 @@
+%h1
+  記事のジャンルを選んでください
+- @tags.each do |tag|
+  = link_to new_tag_post_path(tag) do
+    = tag.name
