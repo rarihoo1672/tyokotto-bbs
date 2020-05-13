@@ -11,9 +11,6 @@
 // about supported directives.
 //
 //
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
 //= require jquery
 //= require rails-ujs
 //= require marked
