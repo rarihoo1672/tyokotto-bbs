@@ -1,0 +1,15 @@
+<h2>
+  <%= @name %>
+  さんの投稿一覧
+</h2>
+<p>
+  記事の数は
+  <%= @count %>
+</p>
+
+
+
+<%= render partial: "posts/post", locals: { posts: @posts }%>
+
+<%= link_to "ホームへ戻る", root_path%>
+

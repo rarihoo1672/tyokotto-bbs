@@ -1,0 +1,12 @@
+<h1>
+  ジャンル
+  <%- @tags.each do |tag| %>
+    <%= link_to  tag_path(tag) do %>
+      <%= tag.name %>
+    <% end %>
+  <% end%>
+</h1>
+
+  <%= render partial: "post", locals: { posts: @posts }%>
+
+  <%= link_to "ヘッドラインニュース", articles_path %>

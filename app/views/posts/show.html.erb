@@ -1,0 +1,57 @@
+<h2>
+  投稿者：
+  <%= link_to @post.user.name, user_path(@post.user_id)%>
+</h2>
+<p>
+  日時
+  <%= @post.created_at.to_s(:datetime) %>
+</p>
+<p>
+  タイトル
+  <%= @post.title %>
+</p>
+
+<% if @post.image.present?%>
+  <%= image_tag(@post.image_url) %>
+<% else %>
+  画像がありません
+<% end %>
+
+<p>
+  記事
+  <%= @post.content %>
+</p>
+
+<% if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to "記事編集", edit_tag_post_path(@post.tag_id, @post) %>
+<% end %>
+
+  <h3>
+    コメント
+  </h3>
+<% if user_signed_in? %>
+  コメントフォーム
+  <%= form_with(model: [@tag, @post, @comment], local: true) do |f| %>
+    <%= f.text_field :text %>
+    <%= f.submit "SEND" %>
+  <% end %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <p>
+    コメント
+    <%= comment.text %>
+  </p>
+  <p>
+    コメント
+    <%= comment.created_at.to_s(:datetime) %>
+  </p>
+  
+<% end %>
+
+
+
+<%= paginate @comments %>
+
+<%= link_to "ホーム", root_path %>
+
