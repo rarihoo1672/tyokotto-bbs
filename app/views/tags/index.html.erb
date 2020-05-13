@@ -1,9 +1,0 @@
-<h1>
-  記事のジャンルを選んでください
-</h1>
-
-<%- @tags.each do |tag|%>
-  <%= link_to new_tag_post_path(tag) do %>
-    <%= tag.name %>
-  <% end %>
-<% end %>
