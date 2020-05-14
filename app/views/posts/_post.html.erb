@@ -12,12 +12,12 @@
         <%= post.title %>
       </h1>
       <div class="card__info">
-        <p class="card__info__name">
+        <div class="card__info__name">
           <%= post.user.name %>
-        </p>
-        <p class="card__info__date">
+        </div>
+        <div class="card__info__date">
           <%= post.created_at.to_s(:datetime) %>
-        </p>
+        </div>
       </div>
       <div class="card__link">
         <%= link_to "記事詳細", tag_post_path(post.tag_id, post.id) %>
@@ -29,14 +29,3 @@
 <%= paginate @posts %>
 
 
-<% if user_signed_in? %> 
-  <div class="user">
-    <p class="user--label">
-      ログインユーザー名
-    </p>
-    <p class="user--name">
-      <%= current_user.name %>
-    </p>
-    </p>
-  </div>
-<% end %>

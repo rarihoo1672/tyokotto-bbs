@@ -13,7 +13,7 @@
       &__link {
         display: inline-block;
         background-color: $dark-red;
-        padding: 7px;
+        padding: 4px;
         border: 1px dashed black;
         border-radius: 30px;
         color: white;
@@ -32,7 +32,6 @@
     }
 
     .top {
-      margin-top: 30px;
 
       &__title {
         position: relative;
