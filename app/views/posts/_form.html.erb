@@ -1,30 +1,34 @@
+
 <h2>
   記事のジャンル：
   <%= @tag.name %>
-<h2>
-<div>
-  <p id="marked-title"></p>
+</h2>
+
+<div class="post-marked">
+  <div class="post-marked__image">
+    <img id="select-image", class="post-marked__image--photo">
+  </div>
+  <h2 id="marked-title", class="post-marked__title"></h2>
+  <p id="marked-content", class="post-marked__content"></p>
 </div>
-<div>
-  <p id="marked-content"></p>
+
+
+
+
+<div class="post-form">
+  <%= form_with(model: [@tag, @post], local: true) do |form| %>
+    <div class="post-form__image">
+      <%= form.file_field :image, placeholder: "image", id: "editor-image", class: "post-form__image--photo" %>
+    </div>
+    <%= form.text_area  :title, placeholder: "title(25文字までです）", id: "editor-title", class: "post-form__title" %>
+
+    <%= form.text_area :content, placeholder: "text", id: "editor-content", class: "post-form__content" %>
+
+    <%= form.submit "送信", class: "post-form__btn"%>
+
+  <% end %>
 </div>
-<img id="select-image">
-
-
-
-
-<%= form_with(model: [@tag, @post], local: true) do |form| %>
-
-    <%= form.text_area  :title, placeholder: "title", id: "editor-title" %>
-    <%= form.file_field :image, placeholder: "image", id: "editor-image" %>
-
-
-  
-
-    <%= form.text_area :content, placeholder: "text", id: "editor-content" %>
-  <%= form.submit "送信" %>
-<% end %>
 
 <%= link_to "プロフィールへ", user_path(current_user.id) %>
 
-<%= link_to "ホームへ", root_path %>
+
