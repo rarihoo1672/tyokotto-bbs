@@ -1,11 +1,12 @@
 @media screen and (min-width:781px){
   header {
-    height: 200px;
+    height: 250px;
     padding: 20px 10px 3px;
     background-image: url("header-top");    
     background-size: cover;
     background-position: right 10% bottom 37%;
     border-bottom: 3px solid $dark-brown;
+    position: relative;
 
     .nav {
       text-align: end;
@@ -17,9 +18,10 @@
         border-radius: 30px;
         color: white;
         text-decoration: none;
+        background-color: $dark-red;
+        opacity: 0.5;
 
         &:hover {
-          background-color: $dark-red;
           opacity: 1;
         }
         &:active {
@@ -29,7 +31,7 @@
     }
 
     .top {
-      margin-top: 20px;
+      margin-top: 5px;
 
       &__title {
         position: relative;
@@ -40,13 +42,25 @@
         text-decoration: none;
         filter: drop-shadow(-4px -1px white);
 
+
         &--muted {
           position: absolute;
+          bottom: -15px;
           right: 0;
           font-size: 3vw;
           font-family: serif;
         }
       }
+    }
+
+    .user-name {
+      position: absolute;
+      filter: drop-shadow(2px 1px white);
+      right: 0;
+      bottom: 0;
+      font-size: 2rem;
+      text-align: end;
+      color: $dark-red;
     }
   }
 }
