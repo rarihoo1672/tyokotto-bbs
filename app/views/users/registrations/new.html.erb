@@ -1,39 +1,37 @@
-<h2>アカウント登録</h2>
+<div class="user">
+  <h2 class="page-title">アカウント登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_with model: @user, url: user_registration_path, id: 'user', class: 'user', local: true do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-    <%= f.label :name %>
-      <i>
-        <em>:15文字以内</em>
-      </i><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+      <%= f.label :name, class: "field__label" %>
+        <i>
+          <em>:15文字以内</em>
+        </i><br />
+      <%= f.text_field :name, autofocus: true, class: "field__input" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :email, class: "field__label" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field__input" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "field__input" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field__input" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "登録" %>
-  </div>
-<% end %>
-
-<%= link_to "戻る", :back %>
-<%= link_to "ホームへ", root_path %>
-<%= render "users/shared/links" %>
+    <div class="field">
+      <%= f.submit "登録", class: "field__btn" %>
+    </div>
+  <% end %>
+</div>
