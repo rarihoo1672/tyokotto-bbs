@@ -1,13 +1,8 @@
-<div class="main">
-  <h1>
-    ジャンル
-    <%- @tags.each do |tag| %>
-      <%= link_to  tag_path(tag) do %>
-        <%= tag.name %>
-      <% end %>
-    <% end%>
-  </h1>
-
-  <%= render partial: "post", locals: { posts: @posts }%>
+<div class="genre">
+  <%- @tags.each do |tag| %>
+    <%= link_to "#{tag.name}", tag_path(tag), class: "genre__categories"  %>
+  <% end%>
+  <%= link_to "@news", articles_path, class: "genre__categories" %>
 </div>
-  <%= link_to "ヘッドラインニュース", articles_path %>
+
+<%= render partial: "post", locals: { posts: @posts }%>
