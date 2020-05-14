@@ -1,11 +1,11 @@
 .articles {
   display: grid;
   gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-top: 20px;
 
   .article {
-    width: 350px;
+    width: 288px;
     height: auto;
     border: 1px solid black;
     margin: 5px;
@@ -20,7 +20,7 @@
 
   
     &__title {
-      height: 100px;
+      height: 190px;
       text-align: center;
       font-size: 20px;
       font-weight: bold;
