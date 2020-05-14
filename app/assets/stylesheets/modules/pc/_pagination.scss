@@ -1,0 +1,39 @@
+.pagination {
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+
+  a {
+    background-color: grey;
+    text-decoration: none;
+    :hover {
+      background: #93c9ff;
+
+    }
+  }
+
+  * {
+    color: white;
+    margin: 0 7px;
+    text-decoration: none;
+    padding: 11px 10px;
+    border-radius: 25px;
+    font-family: 'Nunito', sans-serif;
+  }
+  .disabled {
+    color: #666666;
+    padding: 11px 17px;
+    border: 1px solid #666666;
+    border-radius: 23px;
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+.current {
+  font-style: normal;
+  color: white;
+  background: #93c9ff;
+  border-radius: 22.5px;
+  font-family: 'Nunito', sans-serif;
+}
