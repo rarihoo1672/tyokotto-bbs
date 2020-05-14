@@ -11,6 +11,7 @@ $(function() {
       old = v;
       str = $(this).val();
       $("#marked-title").html(marked(str));
+      $('html,body').animate({scrollTop: $('#marked-title').offset().top});
       }
     }
   }
