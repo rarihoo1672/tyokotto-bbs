@@ -13,10 +13,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path, notice: "投稿に成功しました"
+      redirect_to root_path, notice: "投稿しました"
     else
       redirect_back(fallback_location: root_path)
-      flash[:notice] = "投稿に失敗しました"
+      flash[:notice] = "title、textの空欄はできません"
     end
   end
 
