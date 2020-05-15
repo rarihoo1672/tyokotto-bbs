@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       redirect_to root_path, notice: "投稿しました"
     else
       redirect_back(fallback_location: root_path)
-      flash[:notice] = "title、textの空欄はできません"
+      flash[:notice] = "title、textの空欄はできません。タイトルは25文字までです"
     end
   end
 
