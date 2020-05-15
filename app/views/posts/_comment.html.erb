@@ -5,7 +5,12 @@
     <p class="comment__text">
       <%= comment.text %>
     </p>
-    <p class="comment__date">
-      <%= comment.created_at.to_s(:datetime) %>
-    </p>
+    <div class="comment__info">
+      <p class="comment__info__user-name">
+        <%= comment.user.name %>
+        さん
+      <p class="comment__info__date">
+        <%= comment.created_at.to_s(:datetime) %>
+      </p>
+    </div>
   <% end %>

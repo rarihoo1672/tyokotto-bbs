@@ -1,5 +1,5 @@
 .comment {
-  margin: 10px 15%;
+  margin: 20px 15%;
 
   &__label {
     display: inline-block;
@@ -13,10 +13,17 @@
     font-size: 1.3rem;
     opacity: 0.7;
   }
-  &__date {
-    text-align: end;
+  &__info {
+    display: flex;
+    justify-content: flex-end;
     opacity: 0.5;
     border-bottom: 1px dotted gray;
+    margin-bottom: 3px;
+  
+    &__user-name {
+      margin-right: 5%;
+
+    }
   }
   &__form {
 
