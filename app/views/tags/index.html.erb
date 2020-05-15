@@ -1,9 +1,18 @@
-<h1>
-  記事のジャンルを選んでください
-</h1>
+<div class="choose">
+  <h1 class="choose__label">
+    記事のジャンルを選んでください
+  </h1>
 
-<%- @tags.each do |tag|%>
-  <%= link_to new_tag_post_path(tag) do %>
-    <%= tag.name %>
-  <% end %>
-<% end %>
+  <div class="genres">
+    <%- @tags.each do |tag|%>
+      <div class="genre">
+        <%= link_to src=new_tag_post_path(tag) do%>
+          <%= image_tag "#{tag.name}.jpg", class: "#{tag.name} genre--image" %>
+          <p class="genre--label">
+            <%= tag.name %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

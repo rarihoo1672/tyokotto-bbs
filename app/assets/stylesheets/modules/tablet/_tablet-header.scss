@@ -1,0 +1,54 @@
+@media only screen and (min-width: 481px) and (max-width: 780px){
+  header {
+    height: 130px;
+    padding: 10px 5px 0;
+    background-image: url("header-top");    
+    background-size: cover;
+    background-position: right 10% bottom 44%;
+    border-bottom: 3px solid $dark-brown;
+
+    .nav {
+      text-align: end;
+
+      &__link {
+        display: inline-block;
+        background-color: $dark-red;
+        padding: 4px;
+        border: 1px dashed black;
+        border-radius: 30px;
+        color: white;
+        font-size: 5px;
+        opacity: 0.5;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $dark-red;
+          opacity: 1;
+        }
+        &:active {
+          opacity: 0.3;
+        }
+      }
+    }
+
+    .top {
+
+      &__title {
+        position: relative;
+        font-family: cursive;
+        font-size: 6vw;
+        color: red;
+        font-style: italic;
+        text-decoration: none;
+        filter: drop-shadow(-2px -1px white);
+        
+        &--muted {
+          position: absolute;
+          right: 0;
+          font-size: 3vw;
+          font-family: serif;
+        }
+      }
+    }
+  } 
+}

@@ -1,0 +1,19 @@
+.genre {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: serif;
+  font-weight: bold;
+  height: 50px;
+  border-bottom: 1px solid black;
+  &__categories {
+    display: inline-block;
+    padding: 11px;
+    font-size: 1rem;
+  }
+
+  &__category {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: -2px;
+  }
+}

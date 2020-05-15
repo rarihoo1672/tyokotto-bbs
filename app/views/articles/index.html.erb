@@ -1,15 +1,28 @@
-<% @articles.each do |article| %>
-  <h1>
-    <%= article.title %>
-  </h1>
-  <%= article.publishedAt.to_s(:datetime)%>
-  <p>
-    内容
-    <%= article.description %>
-  </p>
-  <%= link_to "#{article.url}", article.url %>
-  <%= image_tag(article.urlToImage) %>
+<div class="genre">
+  <div class="genre__category">
+    @news
+  </div>
+</div>
+
+<div class="articles">
+  <% @articles.each do |article| %>
+    <div class="article">
+      <%= image_tag src=article.urlToImage, class:"article__image" %>
+      <h1 class="article__title">
+      <%= article.title %>
+      </h1>
+
+      <div class="article__date">
+        <%= article.publishedAt.to_s(:datetime)%>
+
+      </div>
+      <div class="article__link">
+        <%= link_to "#{article.url}", article.url %>
+      </div>
+    </div>
   <% end %>
+</div>
+
 
 <%= paginate @articles %>
-<%= link_to "ホーム", root_path %>
+

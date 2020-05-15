@@ -1,0 +1,34 @@
+.choose {
+  &__label {
+    margin: 4% 0;
+    text-align: center;
+  }
+  .genres {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit,  minmax(300px, 1fr));
+    margin-top: 20px;
+
+    .genre {
+      width: 288px;
+      height: auto;
+      border: 1px solid black;
+      margin: 5px;
+      border-radius: 10px;
+
+      &--label {
+        text-align: center;
+        font-family: cursive;
+        background-color: $skin;
+      }
+
+      &--image {
+        display: inline-block;
+        width: 100%;
+        height: 250px;
+        border-radius: 10px;
+      }
+    }
+
+  }
+}

@@ -1,35 +1,32 @@
-<%- @posts.each do |post| %>
-  
-  <h2>
-    ユーザー：
-    <%= post.user.name %>
-  </h2>
-  
-  <p>
-    ジャンル
-    <%= post.tag.name %>
-  </p>
-    <p>
-    タイトル
-    <%= post.title %>
-  </p>
-  <% if post.image.present?%>
-    <%= image_tag(post.image_url) %>
-  <% else %>
-    画像がありません
+<div class="grid"> 
+  <%- @posts.each do |post| %>
+    <div class="card">
+      <% if post.image.present?%>
+        <%= image_tag src=post.image_url, class: "card__image" %>
+      <% else %>
+        <%= image_tag src= "no-image.jpg", class: "card__image"%>
+      <% end %>
+    
+      <h1 class="card__title">
+
+        <%= post.title %>
+      </h1>
+      <div class="card__info">
+        <div class="card__info__name">
+          <%= post.user.name %>
+          さん
+        </div>
+        <div class="card__info__date">
+          <%= post.created_at.to_s(:datetime) %>
+        </div>
+      </div>
+      <div class="card__link">
+        <%= link_to "記事詳細", tag_post_path(post.tag_id, post.id) %>
+      </div>
+    </div>
   <% end %>
-  
-
-  <p>
-    制作日時 
-    <%= post.created_at.to_s(:datetime) %>
-  </p>
-
-  <p>
-    記事：
-    <%= truncate(post.content, length: 20, omission: "・・・・") %>
-  <%= link_to "記事詳細", "/tags/#{post[:tag_id]}/posts/#{post[:id]}" %>
-  </p>
-<% end %>
+</div>
 
 <%= paginate @posts %>
+
+

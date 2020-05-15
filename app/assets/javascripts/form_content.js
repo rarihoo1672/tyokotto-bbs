@@ -1,5 +1,5 @@
 $(function() {
-    $("#editor textarea").each(function () {
+    $("#editor-content").each(function () {
       $(this).bind('keyup', replaceMarkdown(this));
     });
   
@@ -10,8 +10,9 @@ $(function() {
         if (old != (v = elm.value)) {
         old = v;
         str = $(this).val();
-        $("#marked-area").html(marked(str));
+        $("#marked-content").html(marked(str));
+        $('html,body').animate({scrollTop: $('#marked-title').offset().top});
         }
       }
     }
-  });
+});

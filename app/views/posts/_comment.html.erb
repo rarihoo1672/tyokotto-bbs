@@ -1,0 +1,16 @@
+  <div class="comment__label">
+    コメント
+  </div>
+  <% @comments.each do |comment| %>
+    <p class="comment__text">
+      <%= comment.text %>
+    </p>
+    <div class="comment__info">
+      <p class="comment__info__user-name">
+        <%= comment.user.name %>
+        さん
+      <p class="comment__info__date">
+        <%= comment.created_at.to_s(:datetime) %>
+      </p>
+    </div>
+  <% end %>

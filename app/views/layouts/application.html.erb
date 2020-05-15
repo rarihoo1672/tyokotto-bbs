@@ -7,28 +7,49 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
   </head>
+
 
   <body>
     <header>
-      <nav>
-        
-        <% if user_signed_in? %> 
-          <strong><%= current_user.name %></strong>
-          <%= link_to "投稿した記事一覧", user_path(current_user.id) %>
-          <%= link_to 'プロフィール変更', edit_user_registration_path %> 
-          <%= link_to "記事投稿", "/tags" %>
-          <%= link_to "ログアウト", sign_out_path %>
-        <% else %>
-          <%= link_to "新規登録", new_user_registration_path %> 
-          <%= link_to "ログイン", new_user_session_path %>
-        <% end %>
-      </nav>
-    </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <%= yield %>
+      <div class="nav">
+        <% if user_signed_in? %> 
+          <%= link_to "記事投稿", "/tags", class: "nav__link" %>
+          <%= link_to "投稿記事", user_path(current_user.id), class: "nav__link" %>
+          <%= link_to '登録情報変更', edit_user_registration_path, class: "nav__link" %> 
+          <%= link_to "ログアウト", sign_out_path, class: "nav__link" %>
+        <% else %>
+          <%= link_to "新規登録", new_user_registration_path, class: "nav__link" %> 
+          <%= link_to "ログイン", new_user_session_path, class: "nav__link" %>
+        <% end %> 
+      </div>
+
+      
+      <div class="top">
+        <%= link_to  root_path, class: "top__title" do %>
+          TYOKOTTO
+          <div class="top__title--muted">
+            BBS
+          </div>
+        <% end%>
+      </div>
+
+      <% if user_signed_in? %> 
+        <div class="user-name">
+          <%= current_user.name %>
+          さん
+        </div>
+        
+      <% end %>
+
+
+    </header>
+    <div class="main">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>

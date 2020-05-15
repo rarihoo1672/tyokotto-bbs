@@ -1,57 +1,58 @@
-<h2>
-  投稿者：
-  <%= link_to @post.user.name, user_path(@post.user_id)%>
-</h2>
-<p>
-  日時
-  <%= @post.created_at.to_s(:datetime) %>
-</p>
-<p>
-  タイトル
-  <%= @post.title %>
-</p>
+<div class="article">
 
-<% if @post.image.present?%>
-  <%= image_tag(@post.image_url) %>
-<% else %>
-  画像がありません
-<% end %>
+  <h2 class="article__user">
+    投稿者：
+    <%= link_to @post.user.name, src=user_path(@post.user_id), class:"article__user--link"%>
+    さん
+  </h2>
 
-<p>
-  記事
-  <%= @post.content %>
-</p>
+  <div class="article__image">
+    <% if @post.image.present?%>
+      <%= image_tag src=@post.image_url, class: "article__image--photo" %>
+    <% else %>
+      <%= image_tag src= "no-image.jpg", class: "article__image--photo"%>
+    <% end %>
+  </div>
 
-<% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to "記事編集", "/tags/#{@post[:tag_id]}/posts/#{@post[:id]}/edit" %>
-<% end %>
+  <div class="article__info">
+    <p class="article__info--category">
+      <%= @tag.name%>
+    </p>
+    <p class="article__info--date">
+      <%= @post.created_at.to_s(:datetime) %>
+    </p>
+  </div>
 
-  <h3>
-    コメント
-  </h3>
-<% if user_signed_in? %>
-  コメントフォーム
-  <%= form_with(model: [@tag, @post, @comment], local: true) do |f| %>
-    <%= f.text_field :text %>
-    <%= f.submit "SEND" %>
+  <% if user_signed_in? && current_user.id == @post.user_id %>
+    <div class="article__edit">
+      <%= link_to "記事編集", src=edit_tag_post_path(@post.tag_id, @post), class: "article__edit--link" %>
+    </div>
   <% end %>
-<% end %>
 
-<% @comments.each do |comment| %>
-  <p>
-    コメント
-    <%= comment.text %>
+  <h2 class="article__title">  
+    <%= @post.title %>
+  </h2>
+
+  <p class="article__content">
+    <%= markdown(@post.content) %>
   </p>
-  <p>
-    コメント
-    <%= comment.created_at.to_s(:datetime) %>
-  </p>
+</div>
+
+<div class="comment">
+  <%= render partial: "comment", collection: [@comments] %>
+
+  <div class="comment__form">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@tag, @post, @comment], local: true) do |f| %>
+        <%= f.text_field :text, class: "comment__form--input" %>
+        <%= f.submit "SEND", class: "comment__form--btn" %>
+      <% end %>
+    <% end %>
+  </div>
   
-<% end %>
+  <%= paginate @comments %>
+</div>
 
 
 
-<%= paginate @comments %>
-
-<%= link_to "ホーム", root_path %>
 
