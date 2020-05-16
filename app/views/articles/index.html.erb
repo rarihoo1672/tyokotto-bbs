@@ -8,21 +8,21 @@
   <% @articles.each do |article| %>
     <div class="article">
       <%= image_tag src=article.urlToImage, class:"article__image" %>
+
       <h1 class="article__title">
-      <%= article.title %>
+        <%= article.title %>
       </h1>
 
       <div class="article__date">
         <%= article.publishedAt.to_s(:datetime)%>
-
       </div>
+
       <div class="article__link">
         <%= link_to "#{article.url}", article.url %>
       </div>
     </div>
   <% end %>
 </div>
-
 
 <%= paginate @articles %>
 

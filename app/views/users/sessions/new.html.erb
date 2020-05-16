@@ -19,9 +19,9 @@
 
     <div class="field">
       <%= f.label :password, class: "field__label" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> 文字以上)</em>
-      <% end %><br />
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "field__input" %>
     </div>
 
@@ -37,7 +37,5 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to "戻る", :back, class: "field__btn"%>
 
 

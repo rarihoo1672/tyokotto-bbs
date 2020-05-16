@@ -8,9 +8,9 @@
       <% end %>
     
       <h1 class="card__title">
-
         <%= post.title %>
       </h1>
+
       <div class="card__info">
         <div class="card__info__name">
           <%= post.user.name %>
@@ -20,6 +20,7 @@
           <%= post.created_at.to_s(:datetime) %>
         </div>
       </div>
+      
       <div class="card__link">
         <%= link_to "記事詳細", tag_post_path(post.tag_id, post.id) %>
       </div>
