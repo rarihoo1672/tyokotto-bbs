@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def create
     post = Post.find(params[:post_id])
     @comment = post.comments.build(comment_params)
@@ -6,16 +7,10 @@ class CommentsController < ApplicationController
       flash[:success] = "コメントしました"
       redirect_back(fallback_location: root_path)
     else
-      flash[:danger] = "コメントできません"
+      flash[:danger] = "コメントできませんでした"
       redirect_back(fallback_location: root_path)
     end 
   end 
-
-  def destroy
-    comment = Comment.find(params[:id])
-    Comment.destroy
-  end
-
 
   private
   def comment_params
