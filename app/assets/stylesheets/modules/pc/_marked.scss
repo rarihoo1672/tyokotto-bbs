@@ -1,6 +1,7 @@
 .post-marked {
   margin: 10px 15%;
   scroll-behavior: smooth;
+
   &__image {
     display: block;
 
@@ -16,48 +17,7 @@
     font-size: 2rem;
     letter-spacing: 0.5rem;
   }
-  &__content {
-  }
-}
-
-.post-form {
-  margin: 10px 15%;
-  &__title {
-  width: 100%;
-  padding: 10px;
-  letter-spacing: 1px;
-  border: 1px solid gray;
-  margin: 0 10px 2px;
-  }
-  &__image {
-    text-align: end;
-    margin-bottom: 8px;
-    &--photo{
-
-    }
-  }
-
 
   &__content {
-    width: 100%;
-    padding: 10px;
-    letter-spacing: 1px;
-    border: 1px solid gray;
-    margin: 0 10px 2px;
-
   }
-
-
-  &__btn {
-    display: inline-block;
-    background-color: #38aef0;
-    color: #fff;
-    border-radius: 2px;
-    text-decoration: none;
-    padding: 10px 30px;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  
 }

@@ -1,0 +1,35 @@
+.post-form {
+  margin: 10px 15%;
+
+  &__title {
+  width: 100%;
+  margin: 0 10px 2px;
+  padding: 10px;
+  letter-spacing: 1px;
+  border: 1px solid gray;
+  }
+
+  &__image {
+    margin-bottom: 8px;
+    text-align: end;
+  }
+
+  &__content {
+    width: 100%;
+    margin: 0 10px 2px;
+    padding: 10px;
+    letter-spacing: 1px;
+    border: 1px solid gray;
+  }
+
+  &__btn {
+    background-color: $dark-red;
+    padding: 10px 30px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+}

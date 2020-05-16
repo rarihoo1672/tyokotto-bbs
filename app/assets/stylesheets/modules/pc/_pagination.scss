@@ -1,40 +1,39 @@
 .pagination {
-  margin: auto;
   margin: 20px 0;
   text-align: center;
 
   a {
     text-decoration: none;
-    background-color: $light-green;;
+    background-color: $light-green;
+
     &:hover {
       opacity: 1;
       background-color: $dark-red;
-
     }
   }
 
   * {
-    color: white;
     margin: 0 7px;
-    text-decoration: none;
+    color: white;
     padding: 7px 10px;
-    border-radius: 25px;
+    text-decoration: none;
     font-family: 'Nunito', sans-serif;
+    border-radius: 25px;
   }
+
   .disabled {
     color: #666666;
     padding: 11px 17px;
+    font-family: 'Nunito', sans-serif;
     border: 1px solid #666666;
     border-radius: 23px;
-    font-family: 'Nunito', sans-serif;
+  }
+
+  .current {
+    background: $dark-red;
+    color: white;
+    opacity: 0.7;
+    border-radius: 22.5px;
   }
 }
 
-.current {
-  font-style: normal;
-  color: white;
-  background: $dark-red;
-  border-radius: 22.5px;
-  font-family: 'Nunito', sans-serif;
-  opacity: 0.7;
-}

@@ -10,15 +10,16 @@
 
   .field {
     text-align: center;
-    &__label {
 
+    &__label {
     }
+
     &__input {
       width: 100%;
       padding: 10px;
       letter-spacing: 1px;
     }
-    
+
     &__btn {
       margin-top: 30px;
       display: inline-block;
@@ -30,14 +31,16 @@
       border: none;
       border-radius: 2px;
       color: #fff;
-      background-color: #38aef0;
+      background-color: $dark-red;
       cursor: pointer;
     }
   }
+
   .field-links {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+
     &--btn {
       margin-top: 10px;
       display: inline-block;
