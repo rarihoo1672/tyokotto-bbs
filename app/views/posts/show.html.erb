@@ -28,14 +28,17 @@
     </div>
   <% end %>
 
-  <h2 class="article__title">  
-    <%= @post.title %>
-  </h2>
+  <div class="article__text">
+    <h2 class="article__text__title">  
+      <%= @post.title %>
+    </h2>
 
-  <p class="article__content">
-    <%= markdown(@post.content) %>
-  </p>
+    <p class="article__text__content">
+      <%= markdown(@post.content) %>
+    </p>
+  </div>
 </div>
+
 
 <div class="comment">
   <%= render partial: "shared/comment", collection: [@comments] %>
