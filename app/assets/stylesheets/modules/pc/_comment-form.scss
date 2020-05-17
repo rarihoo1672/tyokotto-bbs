@@ -1,0 +1,23 @@
+.comment__form {
+  margin: 20px 14% 3% 14%;
+  text-align: center;
+
+  &--input {
+  width: 70%;
+  margin: 0 10px 2px;
+  padding: 10px;
+  letter-spacing: 1px;
+  border: 1px solid gray;
+  }
+
+  &--btn {
+    background-color: $dark-red;
+    padding: 10px 30px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+}

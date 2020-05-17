@@ -1,50 +1,37 @@
-.comment {
+.comments-box {
   margin: 20px 14% 3% 14%;
-
-  &__label {
-    display: inline-block;
-    opacity: 0.5;
-    border: 1px dotted gray;
-  }
-
-  &__text {
-    text-align: center;
-    font-size: 1.3rem;
-    opacity: 0.7;
-  }
-
-  &__info {
-    display: flex;
-    margin-bottom: 3px;
-    justify-content: flex-end;
-    opacity: 0.5;
-    border-bottom: 1px dotted gray;
   
-    &__user-name {
-      margin-right: 5%;
-    }
-  }
-
-  &__form {
-    text-align: center;
-
-    &--input {
-    width: 70%;
-    margin: 0 10px 2px;
-    padding: 10px;
-    letter-spacing: 1px;
-    border: 1px solid gray;
-    }
-
-    &--btn {
-      background-color: $dark-red;
-      padding: 10px 30px;
+  .comments {
+    margin: 20px 14% 3% 14%;
+    overflow: scroll;
+    height: 650px;
+  
+    &__label {
       display: inline-block;
-      text-align: center;
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
-      border-radius: 2px;
+      opacity: 0.5;
+      border: 1px dotted gray;
+      margin-left: 5%;
+    }
+  
+    .comment {
+  
+      &__text {
+        text-align: center;
+        font-size: 1.3rem;
+        opacity: 0.7;
+      }
+    
+      &__info {
+        display: flex;
+        margin-bottom: 3px;
+        justify-content: flex-end;
+        opacity: 0.5;
+        border-bottom: 1px dotted gray;
+      
+        &__user-name {
+          margin-right: 5%;
+        }
+      }
     }
   }
 }

@@ -40,21 +40,18 @@
 </div>
 
 
-<div class="comment">
+<div class="comments-box">
   <%= render partial: "shared/comment", collection: [@comments] %>
-
-  <div class="comment__form">
-    <% if user_signed_in? %>
-      <%= form_with(model: [@tag, @post, @comment], local: true) do |f| %>
-        <%= f.text_field :text, class: "comment__form--input" %>
-        <%= f.submit "SEND", class: "comment__form--btn" %>
-      <% end %>
-    <% end %>
-  </div>
-  
-  <%= paginate @comments %>
 </div>
 
+<div class="comment__form">
+  <% if user_signed_in? %>
+    <%= form_with(model: [@tag, @post, @comment], local: true, id: "new_comment") do |f| %>
+      <%= f.text_field :text, class: "comment__form--input" %>
+      <%= f.submit "SEND", class: "comment__form--btn" %>
+    <% end %>
+  <% end %>
+</div>
 
 
 

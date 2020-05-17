@@ -4,8 +4,10 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     @comment = post.comments.build(comment_params)
     if @comment.save
-      flash[:success] = "コメントしました"
-      redirect_back(fallback_location: root_path)
+      respond_to do |format|
+        format.html {redirect_back(fallback_location: root_path)}
+        format.json
+      end
     else
       flash[:danger] = "コメントできませんでした"
       redirect_back(fallback_location: root_path)
