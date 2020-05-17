@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path, notice: "投稿しました"
+      redirect_to user_path(current_user.id), notice: "投稿しました"
     else
       redirect_back(fallback_location: root_path)
       flash[:notice] = "投稿できませんでした"
