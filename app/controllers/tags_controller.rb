@@ -5,7 +5,8 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
-    @posts = @tag.posts.order("created_at DESC").page(params[:page]).per(5)
+    @tags = Tag.all
+    tag = Tag.find(params[:id])
+    @posts = tag.posts.order("created_at DESC").page(params[:page]).per(5)
   end
 end
