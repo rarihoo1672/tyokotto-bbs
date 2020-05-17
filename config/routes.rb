@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   end
 
   root to: "posts#index"
-  resources :tags do
-    resources :posts do
-      resources :comments 
+  resources :tags, only: [:index, :show] do
+    resources :posts, except: :destroy do
+      resources :comments, except: [:show, :destroy]
     end
   end
-  resources :users
-  resources :articles
+  resources :users, only: :show
+  resources :articles, only: :index
 end
