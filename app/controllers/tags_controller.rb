@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!, only: :index
   def index
     @tags = Tag.all
   end
