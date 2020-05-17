@@ -38,7 +38,7 @@
 </div>
 
 <div class="comment">
-  <%= render partial: "comment", collection: [@comments] %>
+  <%= render partial: "shared/comment", collection: [@comments] %>
 
   <div class="comment__form">
     <% if user_signed_in? %>

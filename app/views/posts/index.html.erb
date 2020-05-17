@@ -1,8 +1,9 @@
 <div class="genre">
   <%- @tags.each do |tag| %>
-    <%= link_to "#{tag.name}", tag_path(tag), class: "genre__categories"  %>
+    <%= link_to "#{tag.name}", tag_path(tag), class: "genre__categories image"   %>
   <% end%>
-  <%= link_to "@news", articles_path, class: "genre__categories" %>
+
+  <%= link_to "@news", articles_path, class: "genre__categories label" %>
 </div>
 
-<%= render partial: "post", locals: { posts: @posts }%>
+<%= render partial: "shared/post", locals: { posts: @posts }%>
