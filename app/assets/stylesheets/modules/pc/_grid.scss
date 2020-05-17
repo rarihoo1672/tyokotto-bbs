@@ -3,7 +3,7 @@
   display: grid;
   gap: 15px;
   grid-template-columns: repeat(auto-fit,  minmax(300px, 1fr));
-
+  margin-top: 20px;
   .card {
     width: 288px;
     height: auto;
@@ -19,7 +19,7 @@
     }
 
     &__title {
-      height: 120px;
+      height: 90px;
       margin-bottom: 5px;
       text-align: center;
       line-height: 125%;
