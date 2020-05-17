@@ -1,7 +1,4 @@
-<div class="genre">
-  <div class="genre__category">
-    <%= @tag.name %>
-  </div>
-</div>
 
+
+<%= render partial: "shared/genre", locals: { tags: @tags } %>
 <%= render partial: "shared/post", locals: { posts: @posts } %>

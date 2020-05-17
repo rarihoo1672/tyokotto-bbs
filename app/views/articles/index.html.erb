@@ -1,24 +1,20 @@
-<div class="genre">
-  <div class="genre__category">
-    @news
-  </div>
-</div>
+<%= render partial: "shared/genre", locals: { tags: @tags } %>
 
-<div class="articles">
+<div class="grid">
   <% @articles.each do |article| %>
-    <div class="article">
-      <%= image_tag src=article.urlToImage, class:"article__image" %>
+    <div class="card">
+      <%= image_tag src=article.urlToImage, class:"card__image" %>
 
-      <h1 class="article__title">
+      <h1 class="card__title">
         <%= article.title.truncate(40, omission: '〜〜...') %>
       </h1>
 
-      <div class="article__date">
+      <div class="card__info">
         <%= article.publishedAt.to_s(:datetime)%>
       </div>
 
-      <div class="article__link">
-        <%= link_to "#{article.url}", article.url %>
+      <div class="card__link">
+        <%= link_to "記事リンク", article.url %>
       </div>
     </div>
   <% end %>
