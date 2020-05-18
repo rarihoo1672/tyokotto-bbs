@@ -5,7 +5,7 @@ $(function() {
   
   
     function replaceMarkdown(elm) {
-      var v, old = elm.value;
+      let v, old = elm.value;
       return function () {
         if (old != (v = elm.value)) {
         old = v;

@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(comment){
-    var html = `<div class = "comment">
+    let html = `<div class = "comment">
                   <p class = "comment__text">
                     ${comment.text}
                   </p>
@@ -19,8 +19,8 @@ $(function() {
   
   $("#new_comment").on("submit", function(e){
     e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr("action")
+    let formData = new FormData(this);
+    let url = $(this).attr("action")
     $.ajax({
       url: url,
       type: "POST",
@@ -30,7 +30,7 @@ $(function() {
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
+      let html = buildHTML(data);
       $(".comments").append(html);
       $(".comment__form--input").val("");
       $(".comments").animate({ scrollTop: $(".comments")[0].scrollHeight});
@@ -44,7 +44,7 @@ $(function() {
 
 
   $(".comment__form--btn").click(function() {
-    var form = $(".comment__form--btn").offset().top;
+    let form = $(".comment__form--btn").offset().top;
     $('html, body').animate({scrollTop:form});
   });
 });

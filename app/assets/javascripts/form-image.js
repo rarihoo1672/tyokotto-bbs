@@ -1,6 +1,6 @@
 $(function() {  
   $("#editor-image").on('change', function (e) {
-  var reader = new FileReader();
+  let reader = new FileReader();
   reader.onload = function (e) {
       $("#select-image").attr('src', e.target.result);
   }
