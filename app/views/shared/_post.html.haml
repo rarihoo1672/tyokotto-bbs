@@ -1,0 +1,22 @@
+.grid
+  - @posts.each do |post|
+    .card
+      - if post.image.present?
+        = image_tag src=post.image_url, class: "card__image"
+      - else
+        = image_tag src= "no-image.jpg", class: "card__image"
+
+      %h1.card__title
+        = post.title
+
+      .card__info
+        .card__info__name
+          = post.user.name
+          さん
+        .card__info__date
+          = post.created_at.to_s(:datetime)
+
+      .card__link
+        = link_to "link", tag_post_path(post.tag_id, post.id)
+        
+= paginate @posts

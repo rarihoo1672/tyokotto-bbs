@@ -1,0 +1,17 @@
+%h2
+  記事のジャンル：
+  = @tag.name
+  
+.post-marked
+  .post-marked__image
+    %img#select-image.post-marked__image--photo
+  %h2#marked-title.post-marked__title
+  %p#marked-content.post-marked__content
+
+.post-form
+  = form_with(model: [@tag, @post], local: true) do |form|
+    .post-form__image
+      = form.file_field :image, placeholder: "image", id: "editor-image", class: "post-form__image--photo"
+    = form.text_area  :title, placeholder: "title(35文字までです）  ※必須", id: "editor-title", class: "post-form__title"
+    = form.text_area :content, placeholder: "text(マークダウン形式です)   ※必須", id: "editor-content", class: "post-form__content"
+    = form.submit "送信", class: "post-form__btn"

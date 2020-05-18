@@ -1,0 +1,4 @@
+.genre
+  - tags.each do |tag|
+    = link_to_unless_current "#{tag.name}", tag_path(tag), class: "genre__categories image"
+  = link_to_unless_current "@news", articles_path, class: "genre__categories label"

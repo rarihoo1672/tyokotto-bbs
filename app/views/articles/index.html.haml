@@ -1,0 +1,12 @@
+= render partial: "shared/genre", locals: { tags: @tags }
+.grid
+  - @articles.each do |article|
+    .card
+      = image_tag src=article.urlToImage, class:"card__image"
+      %h1.card__title
+        = article.title.truncate(40, omission: '〜〜...')
+      .card__info
+        = article.publishedAt.to_s(:datetime)
+      .card__link
+        = link_to "記事リンク", article.url
+= paginate @articles

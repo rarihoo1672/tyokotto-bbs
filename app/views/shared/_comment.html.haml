@@ -1,0 +1,13 @@
+.comments__label
+  コメント
+.comments
+  - @comments.each do |comment|
+    .comment
+      %p.comment__text
+        = comment.text
+      .comment__info
+        %p.comment__info__user-name
+          = comment.user.name
+          さん
+        %p.comment__info__date
+          = comment.created_at.to_s(:datetime)

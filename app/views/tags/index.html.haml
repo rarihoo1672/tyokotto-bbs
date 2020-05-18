@@ -1,0 +1,10 @@
+.choose
+  %h1.choose__label
+    記事のジャンルを選んでください
+  .genres
+    - @tags.each do |tag|
+      .genre
+        = link_to src=new_tag_post_path(tag) do
+          = image_tag "#{tag.name}.jpg", class: "#{tag.name} genre--image"
+          %p.genre--label
+            = tag.name

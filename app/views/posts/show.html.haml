@@ -1,0 +1,37 @@
+.article
+  %h2.article__user
+    投稿者：
+    = link_to @post.user.name, src=user_path(@post.user_id), class:"article__user--link"
+    さん
+
+  .article__image
+    - if @post.image.present?
+      = image_tag src=@post.image_url, class: "article__image--photo"
+    - else
+      = image_tag src= "no-image.jpg", class: "article__image--photo"
+
+  .article__info
+    %p.article__info--category
+      = @tag.name
+    %p.article__info--date
+      = @post.created_at.to_s(:datetime)
+
+  - if user_signed_in? && current_user.id == @post.user_id
+    .article__edit
+      = link_to "記事編集", src=edit_tag_post_path(@post.tag_id, @post), class: "article__edit--link"
+
+  .article__text
+    %h2.article__text__title
+      = @post.title
+    %p.article__text__content
+      = markdown(@post.content)
+
+
+.comments-box
+  = render partial: "shared/comment", collection: [@comments]
+  
+.comment__form
+  - if user_signed_in?
+    = form_with(model: [@tag, @post, @comment], local: true, id: "new_comment") do |f|
+      = f.text_field :text, class: "comment__form--input"
+      = f.submit "SEND", class: "comment__form--btn"
