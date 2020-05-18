@@ -1,4 +1,4 @@
-$(function() {
+$(function(){
   function buildHTML(comment){
     let html =
       `<div class = "comment">
@@ -21,7 +21,7 @@ $(function() {
   $("#new_comment").on("submit", function(e){
     e.preventDefault();
     let formData = new FormData(this);
-    let url = $(this).attr("action")
+    let url = $(this).attr("action");
     $.ajax({
       url: url,
       type: "POST",
@@ -38,7 +38,7 @@ $(function() {
       $(".comment__form--btn").prop("disabled", false);
     })
     .fail(function(data){
-      alert('エラーが発生したためメッセージは送信できませんでした。');
+      alert("エラーが発生したためメッセージは送信できませんでした。")
       $(".comment__form--btn").prop("disabled", false);
     })
   })
