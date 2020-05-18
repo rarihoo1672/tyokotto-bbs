@@ -1,19 +1,20 @@
 $(function() {
   function buildHTML(comment){
-    let html = `<div class = "comment">
-                  <p class = "comment__text">
-                    ${comment.text}
-                  </p>
-                  <div class = "comment__info">
-                    <p class = "comment__info__user-name">
-                      ${comment.user_name}
-                      さん
-                    </p>
-                    <p class = "comment__info__date">
-                      ${comment.date}
-                    </p>
-                  </div>
-                </div>`
+    let html =
+      `<div class = "comment">
+        <p class = "comment__text">
+          ${comment.text}
+        </p>
+        <div class = "comment__info">
+          <p class = "comment__info__user-name">
+            ${comment.user_name}
+            さん
+          </p>
+          <p class = "comment__info__date">
+            ${comment.date}
+          </p>
+        </div>
+      </div>`
     return html;
   }
   
@@ -41,10 +42,4 @@ $(function() {
       $(".comment__form--btn").prop("disabled", false);
     })
   })
-
-
-  $(".comment__form--btn").click(function() {
-    let form = $(".comment__form--btn").offset().top;
-    $('html, body').animate({scrollTop:form});
-  });
 });
