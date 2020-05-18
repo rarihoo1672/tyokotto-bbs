@@ -1,15 +1,15 @@
 $(function() {
   function buildHTML(comment){
-    var html = `<div class="comment">
-                  <p class="comment__text">
+    var html = `<div class = "comment">
+                  <p class = "comment__text">
                     ${comment.text}
                   </p>
-                  <div class="comment__info">
-                    <p class="comment__info__user-name">
+                  <div class = "comment__info">
+                    <p class = "comment__info__user-name">
                       ${comment.user_name}
                       さん
                     </p>
-                    <p class="comment__info__date">
+                    <p class = "comment__info__date">
                       ${comment.date}
                     </p>
                   </div>
