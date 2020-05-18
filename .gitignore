@@ -31,6 +31,3 @@ public/uploads/*
 
 #Ignore env file
 /.env
-
-#Ignore commit file
-config/secrets.yml
