@@ -1,5 +1,16 @@
 require 'net/http'
 
+categories = [
+              {name: "other"},
+              {name: "life"},
+              {name: "thinking"},
+              {name: "business"}
+              ]
+
+categories.each do |data|
+  Tag.create(name: data[:name])
+end
+
 news_api_key = ENV["NEWS_API_KEY_ID"]
 uri1 = URI.parse("http://newsapi.org/v2/top-headlines?country=jp&apiKey=#{news_api_key}")
 json1= Net::HTTP.get(uri1)
@@ -11,13 +22,3 @@ end
 
 
 
-categories = [
-              {name: "other"},
-              {name: "life"},
-              {name: "thinking"},
-              {name: "business"}
-              ]
-
-categories.each do |data|
-  Tag.create(name: data[:name])
-end
