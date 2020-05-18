@@ -49,11 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: tyokotto-bbs_production
-  username: tyokotto-bbs
-  password: <%= ENV['TYOKOTTO-BBS_DATABASE_PASSWORD'] %>
-
-  <<: *default
   adapter: postgresql
   encoding: unicode
   pool: 5
