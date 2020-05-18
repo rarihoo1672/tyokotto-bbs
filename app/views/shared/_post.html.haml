@@ -2,9 +2,9 @@
   - @posts.each do |post|
     .card
       - if post.image.present?
-        = image_tag src=post.image_url, class: "card__image"
+        = image_tag post.image_url, class: "card__image"
       - else
-        = image_tag src= "no-image.jpg", class: "card__image"
+        = image_tag "no-image.jpg", class: "card__image"
 
       %h1.card__title
         = post.title
